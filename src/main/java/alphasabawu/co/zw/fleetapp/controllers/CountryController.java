@@ -43,4 +43,10 @@ public class CountryController {
         countryService.saveCountry(country);
         return "redirect:/countries";
     }
+    @RequestMapping(value = "/countries/deleteById", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String deleteCountry(Integer id){
+        countryService.removeCountry(id);
+        return "redirect:/countries";
+    }
+
 }

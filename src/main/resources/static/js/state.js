@@ -10,7 +10,7 @@ $('document').ready(function() {
 		$.get(href, function(state, status){
 			$('#idEdit').val(state.id);
 			$('#ddlCountryEdit').val(state.countryid);
-			$('#capitalEdit').val(state.capipal);
+			$('#capitalEdit').val(state.capital);
 			$('#codeEdit').val(state.code);
 			$('#nameEdit').val(state.name);
 			$('#detailsEdit').val(state.details);
@@ -31,11 +31,22 @@ $('document').ready(function() {
 		});			
 		$('#detailsModal').modal();		
 	});	
-	
-	$('.table #deleteButton').on('click',function(event) {
+	//
+	// $('.table #deleteButton').on('click',function(event) {
+	// 	event.preventDefault();
+	// 	var href = $(this).attr('href');
+	// 	$('#deleteModal #delRef').attr('href', href);
+	// 	$('#deleteModal').modal();
+	// });
+
+
+	$('table #deleteButton').on('click', function(event){
 		event.preventDefault();
-		var href = $(this).attr('href');
-		$('#deleteModal #delRef').attr('href', href);
-		$('#deleteModal').modal();		
-	});	
+
+		var href= $(this).attr('href');
+
+		$('#confirmDeleteButton').attr('href', href);
+
+		$('#deleteModal').modal();
+	});
 });

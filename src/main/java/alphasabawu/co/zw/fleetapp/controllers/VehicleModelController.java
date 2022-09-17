@@ -36,18 +36,18 @@ public class VehicleModelController {
         return "redirect:/vehicleMake";
     }
 
-    @RequestMapping("/vehicleMakes/findById")
+    @RequestMapping("/vehicleModels/findById")
     @ResponseBody
     public Optional<VehicleModel> findById(int id){
         return vehicleModelService.getVehicleModelByID(id);
     }
 
-    @RequestMapping(value = "/vehicleMakes/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value = "/vehicleModels/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public String updateVehicleMakes(VehicleModel vehicleModel){
         vehicleModelService.saveVehicleModel(vehicleModel);
         return "redirect:/vehicleMake";
     }
-    @RequestMapping(value = "/vehicleMakes/deleteById", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value = "/vehicleModels/deleteById", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteVehicleMakes(Integer id){
         vehicleModelService.removeVehicleModel(id);
         return "redirect:/vehicleMake";

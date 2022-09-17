@@ -22,7 +22,7 @@ public class VehicleMakeController {
 
         List<VehicleMake> vehicleMakeList = vehicleMakeService.getvehicleMake();
 
-        model.addAttribute("vehiclesMakes", vehicleMakeList);
+        model.addAttribute("vehicleMakes", vehicleMakeList);
 
         return "vehicleMake";
     }

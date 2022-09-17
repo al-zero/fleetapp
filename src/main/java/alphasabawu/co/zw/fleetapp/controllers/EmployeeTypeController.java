@@ -22,6 +22,7 @@ public class EmployeeTypeController {
     @GetMapping("/employeeTypes")
     public String getEmployeeType(Model model){
         List<EmployeeType> employeeTypeList = employeeTypeService.getEmployeeTypes();
+        System.out.println("Our list is here: " + employeeTypeList);
         model.addAttribute("employeeTypes", employeeTypeList);
 
         return "employeeType";

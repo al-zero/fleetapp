@@ -23,7 +23,7 @@ public class VehicleStatusController {
     public String getVehicleStatus(Model model){
 
         List<VehicleStatus> vehicleStatusList = vehicleStatusService.getVehicleStatus();
-        model.addAttribute("vehicleStatus", vehicleStatusList );
+        model.addAttribute("vehicleStatuses", vehicleStatusList );
         return "vehicleStatus";
     }
 

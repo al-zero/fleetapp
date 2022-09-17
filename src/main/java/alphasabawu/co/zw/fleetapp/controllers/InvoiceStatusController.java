@@ -45,7 +45,7 @@ public class InvoiceStatusController {
         invoiceStatusService.saveInvoiceStatus(invoiceStatus);
         return "redirect:/invoiceStatus";
     }
-    @RequestMapping(value = "/employeeTypes/deleteById", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value = "/invoiceStatuses/deleteById", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteInvoiceStatus(Integer id){
         invoiceStatusService.removeInvoiceStatus(id);
         return "redirect:/invoiceStatus";

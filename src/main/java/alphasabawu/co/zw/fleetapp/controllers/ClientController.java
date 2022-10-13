@@ -35,17 +35,17 @@ public class ClientController {
 
         model.addAttribute("states", stateList);
         model.addAttribute("countries", countryList);
-        model.addAttribute("clients", stateList);
+        model.addAttribute("clients", clientList);
 
 
         return "client";
     }
     
 
-    @PostMapping("/Clients/addNew")
+    @PostMapping("/clients/addNew")
     public String addClient(Client client){
         clientService.saveClient(client);
-        return "redirect:/Clients";
+        return "redirect:/clients";
     }
 
     @RequestMapping("/Clients/findById")
@@ -58,12 +58,12 @@ public class ClientController {
     @RequestMapping(value = "/Clients/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public String updateClient(Client client){
         clientService.saveClient(client);
-        return "redirect:/Clients";
+        return "redirect:/clients";
     }
     @RequestMapping(value = "/Clients/deleteById", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteClient(Integer id){
         clientService.removeClient(id);
-        return "redirect:/Clients";
+        return "redirect:/clients";
     }
 
 }

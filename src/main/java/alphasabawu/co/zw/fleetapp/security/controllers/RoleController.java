@@ -1,9 +1,11 @@
 package alphasabawu.co.zw.fleetapp.security.controllers;
 
 
+
 import alphasabawu.co.zw.fleetapp.security.models.Role;
 import alphasabawu.co.zw.fleetapp.security.repositories.RoleRepository;
 
+import alphasabawu.co.zw.fleetapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,9 @@ public class RoleController {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/Roles")
     public String getRole(Model model){
@@ -46,9 +51,10 @@ public class RoleController {
         return "redirect:/Roles";
     }
     @RequestMapping(value = "/Roles/deleteById", method = {RequestMethod.DELETE, RequestMethod.GET})
-    public String deleteVehicleMakes(Integer id){
+    public String deleteRole(Integer id){
         roleRepository.deleteById(id);
         return "redirect:/Roles";
     }
+
 
 }

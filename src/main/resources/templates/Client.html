@@ -697,6 +697,115 @@
   </form>
 </div>
 
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form th:action="@{/clients/findById}" method="get">
+    <div class="modal-dialog modal-lg" role="document" style="width: 70%">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Client Record</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <table width="100%">
+              <tr>
+                <td width="50%">
+                  <div class="form-group row">
+                    <label for="idDetails" class="col-sm-4 col-form-label">Id:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="idDetails" name="id" placeholder="Id" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="txtNameEdit" class="col-sm-4 col-form-label">Name:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="txtNameEdit" name="name" placeholder="Name" >
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="txtDetailsEdit" class="col-sm-4 col-form-label">Details:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="txtDetailsEdit" name="details" placeholder="Details" >
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="txtWebsiteEdit" class="col-sm-4 col-form-label">Website:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="txtWebsiteEdit" name="website" placeholder="Website" >
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="txtAddressEdit" class="col-sm-4 col-form-label">Address:</label>
+                    <div class="col-sm-6">
+                      <textarea type="text" class="form-control" id="txtAddressEdit" name="address" placeholder="Address" rows="2" ></textarea>
+                    </div>
+                  </div>
+                </td>
+                <td width="50%" style="padding-left:10px">
+                  <div  class="form-group row">
+                    <label for="ddlStateEdit" class="col-sm-4 col-form-label">State/Province:</label>
+                    <div class="col-sm-6">
+                      <select class="form-control" id="ddlStateEdit" name="stateid">
+                        <option>--SELECT--</option>
+                        <option th:each="state : ${states}"
+                                th:value="${state.id}"
+                                th:text="${state.name}">
+
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="ddlCountryEdit" class="col-sm-4 col-form-label"> Country:</label>
+                    <div class="col-sm-6">
+                      <select class="form-control" id="ddlCountryEdit" name="countryid">
+                        <option th:each="country : ${countries}"
+                                th:value="${country.id}"
+                                th:text="${country.description}">
+
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="txtCityEdit" class="col-sm-4 col-form-label">City:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="txtCityEdit" name="city" placeholder="City">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="txtPhoneEdit" class="col-sm-4 col-form-label">Phone:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="txtPhoneEdit" name="phone" placeholder="Phone">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="txtMobileEdit" class="col-sm-4 col-form-label">Mobile:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="txtMobileEdit" name="mobile" placeholder="Mobile">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="txtEmailEdit" class="col-sm-4 col-form-label">Email:</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control" id="txtEmailEdit" name="email" placeholder="Email">
+                    </div>
+                  </div>
+                </td>
+            </table>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
 
 <!-- javascripts -->
 <script src="js/jquery.js"></script>

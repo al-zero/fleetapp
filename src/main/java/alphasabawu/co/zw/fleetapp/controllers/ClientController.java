@@ -48,7 +48,7 @@ public class ClientController {
         return "redirect:/clients";
     }
 
-    @RequestMapping("/Clients/findById")
+    @RequestMapping("/clients/findById")
     @ResponseBody
     public Optional<Client> findById(int id){
         return clientService.getClientByID(id);

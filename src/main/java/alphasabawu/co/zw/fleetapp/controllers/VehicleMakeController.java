@@ -1,7 +1,11 @@
 package alphasabawu.co.zw.fleetapp.controllers;
 
+import alphasabawu.co.zw.fleetapp.models.Country;
 import alphasabawu.co.zw.fleetapp.models.Location;
+import alphasabawu.co.zw.fleetapp.models.State;
 import alphasabawu.co.zw.fleetapp.models.VehicleMake;
+import alphasabawu.co.zw.fleetapp.services.CountryService;
+import alphasabawu.co.zw.fleetapp.services.StateService;
 import alphasabawu.co.zw.fleetapp.services.VehicleMakeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +21,23 @@ public class VehicleMakeController {
     @Autowired
     private VehicleMakeService vehicleMakeService;
 
+    @Autowired
+    private CountryService countryService;
+
+    @Autowired
+    private StateService stateService;
+
+
     @GetMapping("/vehicleMakes")
     public String getVehicleMake(Model model){
 
         List<VehicleMake> vehicleMakeList = vehicleMakeService.getvehicleMake();
+        List<Country> countryList = countryService.getCountries();
+        List<State> stateList = stateService.getStates();
 
         model.addAttribute("vehicleMakes", vehicleMakeList);
+        model.addAttribute("countries", countryList);
+        model.addAttribute("states", stateList);
 
         return "vehicleMake";
     }
@@ -30,7 +45,7 @@ public class VehicleMakeController {
     @PostMapping("/vehicleMakes/addNew")
     public String addNewVehicleMake(VehicleMake vehicleMake){
         vehicleMakeService.saveVehicleMake(vehicleMake);
-        return "redirect:/vehicleMake";
+        return "redirect:/vehicleMakes";
     }
 
     @RequestMapping("/vehicleMakes/findById")
